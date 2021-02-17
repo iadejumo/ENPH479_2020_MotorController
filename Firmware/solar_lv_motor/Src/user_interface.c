@@ -36,16 +36,16 @@
   * of UI Componentes:
   *
   * - Some connect the application with the Motor Conrol Monitor tool via a UART link. The Motor
-  *   Control Monitor can control the motor(s) driven by the application and also read and write  
-  *   internal variables of the Motor Control subsystem. 
-  * - Others UI components allow for using the DAC(s) peripherals in 
+  *   Control Monitor can control the motor(s) driven by the application and also read and write
+  *   internal variables of the Motor Control subsystem.
+  * - Others UI components allow for using the DAC(s) peripherals in
   *   order to output internal variables of the Motor Control subsystem for debug purposes.
   *
   * @{
   */
 
 /**
-  * @brief  Initialize the user interface component. 
+  * @brief  Initialize the user interface component.
   *
   * Perform the link between the UI, MC interface and MC tuning components.
 
@@ -53,7 +53,7 @@
   * @param  bMCNum  Number of MC instance present in the list.
   * @param  pMCI Pointer on the list of MC interface component to inked with UI.
   * @param  pMCT Pointer on the list of MC tuning component to inked with UI.
-  * @param  pUICfg Pointer on the user interface configuration list. 
+  * @param  pUICfg Pointer on the user interface configuration list.
   *         Each element of the list must be a bit field containing one (or more) of
   *         the exported configuration option UI_CFGOPT_xxx (eventually OR-ed).
   * @retval none.
@@ -222,90 +222,6 @@ __weak bool UI_SetReg(UI_Handle_t *pHandle, MC_Protocol_REG_t bRegID, int32_t wV
     }
     break;
 
-  case MC_PROTOCOL_REG_OBSERVER_C1:
-    {
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      int16_t hC1,hC2;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        STO_PLL_GetObserverGains((STO_PLL_Handle_t*)pSPD,&hC1,&hC2);
-        STO_PLL_SetObserverGains((STO_PLL_Handle_t*)pSPD,(int16_t)wValue,hC2);
-      }
-    }
-    break;
-
-  case MC_PROTOCOL_REG_OBSERVER_C2:
-    {
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      int16_t hC1,hC2;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        STO_PLL_GetObserverGains((STO_PLL_Handle_t*)pSPD,&hC1,&hC2);
-        STO_PLL_SetObserverGains((STO_PLL_Handle_t*)pSPD,hC1,(int16_t)wValue);
-      }
-    }
-    break;
-
-  case MC_PROTOCOL_REG_PLL_KI:
-    {
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      int16_t hPgain, hIgain;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        STO_GetPLLGains((STO_PLL_Handle_t*)pSPD,&hPgain,&hIgain);
-        STO_SetPLLGains((STO_PLL_Handle_t*)pSPD,hPgain,(int16_t)wValue);
-      }
-    }
-    break;
-
-  case MC_PROTOCOL_REG_PLL_KP:
-	{
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      int16_t hPgain, hIgain;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        STO_GetPLLGains((STO_PLL_Handle_t*)pSPD,&hPgain,&hIgain);
-        STO_SetPLLGains((STO_PLL_Handle_t*)pSPD,(int16_t)wValue,hIgain);
-      }
-    }
-    break;
-
   case MC_PROTOCOL_REG_IQ_SPEEDMODE:
     {
       MCI_SetIdref(pMCI,(int16_t)wValue);
@@ -328,7 +244,7 @@ __weak int32_t UI_GetReg(UI_Handle_t *pHandle, MC_Protocol_REG_t bRegID, bool * 
 
   int32_t bRetVal = 0;
 
-  if ( success != (bool *) 0 ) 
+  if ( success != (bool *) 0 )
   {
     *success = true;
   }
@@ -510,242 +426,6 @@ __weak int32_t UI_GetReg(UI_Handle_t *pHandle, MC_Protocol_REG_t bRegID, bool * 
     }
     break;
 
-    case MC_PROTOCOL_REG_OBSERVER_C1:
-    {
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      int16_t hC1,hC2;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        STO_PLL_GetObserverGains((STO_PLL_Handle_t*)pSPD,&hC1,&hC2);
-      }
-      bRetVal = (int32_t)hC1;
-    }
-    break;
-
-    case MC_PROTOCOL_REG_OBSERVER_C2:
-    {
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      int16_t hC1,hC2;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        STO_PLL_GetObserverGains((STO_PLL_Handle_t*)pSPD,&hC1,&hC2);
-      }
-      bRetVal = (int32_t)hC2;
-    }
-    break;
-
-    case MC_PROTOCOL_REG_OBS_EL_ANGLE:
-    {
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        bRetVal = SPD_GetElAngle(pSPD);
-      }
-    }
-    break;
-
-    case MC_PROTOCOL_REG_PLL_KP:
-    {
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      int16_t hPgain, hIgain;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        STO_GetPLLGains((STO_PLL_Handle_t*)pSPD,&hPgain,&hIgain);
-      }
-      bRetVal = (int32_t)hPgain;
-    }
-    break;
-
-    case MC_PROTOCOL_REG_PLL_KI:
-    {
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      int16_t hPgain, hIgain;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        STO_GetPLLGains((STO_PLL_Handle_t*)pSPD,&hPgain,&hIgain);
-      }
-      bRetVal = (int32_t)hIgain;
-    }
-    break;
-
-    case MC_PROTOCOL_REG_OBS_ROT_SPEED:
-    {
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        bRetVal = SPD_GetS16Speed(pSPD);
-      }
-    }
-    break;
-
-    case MC_PROTOCOL_REG_OBS_I_ALPHA:
-    {
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        bRetVal = STO_PLL_GetEstimatedCurrent((STO_PLL_Handle_t*)pSPD).alpha;
-      }
-    }
-    break;
-
-    case MC_PROTOCOL_REG_OBS_I_BETA:
-    {
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        bRetVal = STO_PLL_GetEstimatedCurrent((STO_PLL_Handle_t*)pSPD).beta;
-      }
-    }
-    break;
-
-    case MC_PROTOCOL_REG_OBS_BEMF_ALPHA:
-    {
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD =  pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        bRetVal = STO_PLL_GetEstimatedBemf((STO_PLL_Handle_t*)pSPD).alpha;
-      }
-    }
-    break;
-
-    case MC_PROTOCOL_REG_OBS_BEMF_BETA:
-    {
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-       pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        bRetVal = STO_PLL_GetEstimatedBemf((STO_PLL_Handle_t*)pSPD).beta;
-      }
-    }
-    break;
-
-    case MC_PROTOCOL_REG_EST_BEMF_LEVEL:
-    {
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        bRetVal = STO_PLL_GetEstimatedBemfLevel((STO_PLL_Handle_t*)pSPD) >> 16;
-      }
-    }
-    break;
-
-    case MC_PROTOCOL_REG_OBS_BEMF_LEVEL:
-    {
-      uint32_t hUICfg = pHandle->pUICfg[pHandle->bSelectedDrive];
-      SpeednPosFdbk_Handle_t* pSPD = MC_NULL;
-      if (MAIN_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorMain;
-      }
-      if (AUX_SCFG_VALUE(hUICfg) == UI_SCODE_STO_PLL)
-      {
-        pSPD = pMCT->pSpeedSensorAux;
-      }
-      if (pSPD != MC_NULL)
-      {
-        bRetVal = STO_PLL_GetObservedBemfLevel((STO_PLL_Handle_t*)pSPD) >> 16;
-      }
-    }
-    break;
-
     case MC_PROTOCOL_REG_MOTOR_POWER:
     {
       bRetVal = MPM_GetAvrgElMotorPowerW(pMCT->pMPM);
@@ -895,7 +575,7 @@ __weak int32_t UI_GetReg(UI_Handle_t *pHandle, MC_Protocol_REG_t bRegID, bool * 
 
     default:
 	{
-      if ( success != (bool *) 0 ) 
+      if ( success != (bool *) 0 )
       {
         *success = false;
       }
@@ -1001,7 +681,7 @@ __weak bool UI_ExecCmd(UI_Handle_t *pHandle, uint8_t bCmdID)
   * @brief  Allow to execute a speed ramp command coming from the user.
   * @param  pHandle: Pointer on Handle structure of UI component.
   * @param  wFinalMecSpeedUnit: Final speed value expressed in the unit defined by #SPEED_UNIT.
-  * @param  hDurationms: Duration of the ramp expressed in milliseconds. 
+  * @param  hDurationms: Duration of the ramp expressed in milliseconds.
   *         It is possible to set 0 to perform an instantaneous change in the value.
   *  @retval Return true if the command executed succesfully, otherwise false.
   */
@@ -1043,9 +723,9 @@ __weak bool UI_ExecTorqueRamp(UI_Handle_t *pHandle, int16_t hTargetFinal, uint16
   *         retrieve the mechanical speed at the end of that stage. Expressed in
   *         the unit defined by #SPEED_UNIT.
   * @param  pFinalTorque Pointer to an int16_t variable used to
-  *         retrieve the value of motor torque at the end of that stage. 
+  *         retrieve the value of motor torque at the end of that stage.
   *         This value represents actually the Iq current expressed in digit.
-  *         
+  *
   *  @retval Returns true if the command executed successfully, false otherwise.
   */
 __weak bool UI_GetRevupData(UI_Handle_t *pHandle, uint8_t bStage, uint16_t* pDurationms,
@@ -1092,11 +772,11 @@ __weak bool UI_SetRevupData(UI_Handle_t *pHandle, uint8_t bStage, uint16_t hDura
 /**
   * @brief  Allow to execute a set current reference command coming from the user.
   * @param  pHandle: Pointer on Handle structure of UI component.
-  * @param  hIqRef: Current Iq reference on qd reference frame. 
-  *         This value is expressed in digit. 
+  * @param  hIqRef: Current Iq reference on qd reference frame.
+  *         This value is expressed in digit.
   * @note   current convertion formula (from digit to Amps):
   *               Current(Amps) = [Current(digit) * Vdd micro] / [65536 * Rshunt * Aop]
-  * @param  hIdRef: Current Id reference on qd reference frame. 
+  * @param  hIdRef: Current Id reference on qd reference frame.
   *         This value is expressed in digit. See hIqRef param description.
   * @retval none.
   */
@@ -1112,7 +792,7 @@ __weak void UI_SetCurrentReferences(UI_Handle_t *pHandle, int16_t hIqRef, int16_
 
 /**
   * @brief  Allow to get information about MP registers available for each step.
-  *         PC send to the FW the list of steps to get the available registers. 
+  *         PC send to the FW the list of steps to get the available registers.
   *         The FW returs the list of available registers for that steps.
   * @param  stepList: List of requested steps.
   * @param  pMPInfo: The returned list of register.

@@ -59,7 +59,8 @@ MCI_CommandState_t  MC_GetCommandStateMotor1( void);
 /* Stops the execution of the current speed ramp for Motor 1 if any */
 bool MC_StopSpeedRampMotor1(void);
 
-/* Stops the execution of the on going ramp for Motor 1 if any */
+/* Stops the execution of the on going ramp for Motor 1 if any.
+   Note: this function is deprecated and should not be used anymore. It will be removed in a future version. */
 void MC_StopRampMotor1(void);
 
 /* Returns true if the last submited ramp for Motor 1 has completed, false otherwise */

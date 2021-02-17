@@ -17,7 +17,7 @@
   *
   ******************************************************************************
   */
-  
+
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __PARAMETERS_CONVERSION_F4XX_H
 #define __PARAMETERS_CONVERSION_F4XX_H
@@ -48,7 +48,7 @@
 /* Defined here for legacy purposes */
 #define R1_PWM_AUX_TIM                  TIM4
 
-/*************************  ADC Physical characteristics  ************/			
+/*************************  ADC Physical characteristics  ************/
 #define ADC_TRIG_CONV_LATENCY_CYCLES 3
 #define ADC_SAR_CYCLES 12
 

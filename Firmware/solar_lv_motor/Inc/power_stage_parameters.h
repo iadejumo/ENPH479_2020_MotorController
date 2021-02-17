@@ -19,7 +19,7 @@
   *
   ******************************************************************************
   */
-  
+
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __POWER_STAGE_PARAMETERS_H
 #define __POWER_STAGE_PARAMETERS_H
@@ -30,41 +30,40 @@
 
 /************* PWM Driving signals section **************/
 
-#define HW_DEAD_TIME_NS               100 /*!< Dead-time inserted 
-                                                         by HW if low side signals 
+#define HW_DEAD_TIME_NS               100 /*!< Dead-time inserted
+                                                         by HW if low side signals
                                                          are not used */
-														 
+
 /*********** Bus voltage sensing section ****************/
-#define VBUS_PARTITIONING_FACTOR      0.1250 /*!< It expresses how 
-                                                       much the Vbus is attenuated  
-                                                       before being converted into 
+#define VBUS_PARTITIONING_FACTOR      0.1250 /*!< It expresses how
+                                                       much the Vbus is attenuated
+                                                       before being converted into
                                                        digital value */
-#define NOMINAL_BUS_VOLTAGE_V         24 
+#define NOMINAL_BUS_VOLTAGE_V         24
 /******** Current reading parameters section ******/
 /*** Topology ***/
 #define ICS_SENSORS
 
-#define RSHUNT                        0.22000 
+#define RSHUNT                        0.22000
 
 /*  ICSs gains in case of isolated current sensors,
         amplification gain for shunts based sensing */
-#define AMPLIFICATION_GAIN            0.008 
+#define AMPLIFICATION_GAIN            0.008
 
 /*** Noise parameters ***/
 #define TNOISE_NS                     2550
-#define TRISE_NS                      2550 
+#define TRISE_NS                      2550
 #define MAX_TNTR_NS TRISE_NS
-   
+
 /************ Temperature sensing section ***************/
 /* V[V]=V0+dV/dT[V/Celsius]*(T-T0)[Celsius]*/
 #define V0_V                          0.503 /*!< in Volts */
 #define T0_C                          0 /*!< in Celsius degrees */
 #define dV_dT                         0.020 /*!< V/Celsius degrees */
-#define T_MAX                         125 /*!< Sensor measured 
-                                                       temperature at maximum 
-                                                       power stage working 
+#define T_MAX                         125 /*!< Sensor measured
+                                                       temperature at maximum
+                                                       power stage working
                                                        temperature, Celsius degrees */
-                                                       
 
 #endif /*__POWER_STAGE_PARAMETERS_H*/
 /******************* (C) COPYRIGHT 2019 STMicroelectronics *****END OF FILE****/
