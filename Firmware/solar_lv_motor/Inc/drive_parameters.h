@@ -34,19 +34,45 @@
 #define MAX_APPLICATION_SPEED_RPM       4000 /*!< rpm, mechanical */
 #define MIN_APPLICATION_SPEED_RPM       0 /*!< rpm, mechanical,
                                                            absolute value */
-#define MEAS_ERRORS_BEFORE_FAULTS       3 /*!< Number of speed
+#define MEAS_ERRORS_BEFORE_FAULTS       5 /*!< Number of speed
                                                              measurement errors before
                                                              main sensor goes in fault */
-/****** Hall sensors ************/
-#define HALL_MEAS_ERRORS_BEFORE_FAULTS  3 /*!< Number of failed
-                                                           derived class specific speed
-                                                           measurements before main sensor
-                                                           goes in fault */
+/****** State Observer + PLL ****/
+#define VARIANCE_THRESHOLD              0.1 /*!<Maximum accepted
+                                                            variance on speed
+                                                            estimates (percentage) */
+/* State observer scaling factors F1 */
+#define F1                               16384
+#define F2                               8192
+#define F1_LOG                           LOG2(16384)
+#define F2_LOG                           LOG2(8192)
 
-#define HALL_AVERAGING_FIFO_DEPTH        6 /*!< depth of the FIFO used to
-                                                           average mechanical speed in
-                                                           0.1Hz resolution */
-#define HALL_MTPA  false
+/* State observer constants */
+#define GAIN1                            -24009
+#define GAIN2                            16293
+/*Only in case PLL is used, PLL gains */
+#define PLL_KP_GAIN                      851
+#define PLL_KI_GAIN                      30
+#define PLL_KPDIV     16384
+#define PLL_KPDIV_LOG LOG2(PLL_KPDIV)
+#define PLL_KIDIV     65535
+#define PLL_KIDIV_LOG LOG2(PLL_KIDIV)
+
+#define OBS_MEAS_ERRORS_BEFORE_FAULTS    5  /*!< Number of consecutive errors
+                                                           on variance test before a speed
+                                                           feedback error is reported */
+#define STO_FIFO_DEPTH_DPP               64  /*!< Depth of the FIFO used
+                                                            to average mechanical speed
+                                                            in dpp format */
+#define STO_FIFO_DEPTH_DPP_LOG           LOG2(64)
+
+#define STO_FIFO_DEPTH_UNIT              64  /*!< Depth of the FIFO used
+                                                            to average mechanical speed
+                                                            in the unit defined by #SPEED_UNIT */
+#define BEMF_CONSISTENCY_TOL             64   /* Parameter for B-emf
+                                                            amplitude-speed consistency */
+#define BEMF_CONSISTENCY_GAIN            64   /* Parameter for B-emf
+                                                           amplitude-speed consistency */
 
 /* USER CODE BEGIN angle reconstruction M1 */
 #define REV_PARK_ANGLE_COMPENSATION_FACTOR 0
@@ -67,18 +93,18 @@
 #define REGULATION_EXECUTION_RATE     1    /*!< FOC execution rate in
                                                            number of PWM cycles */
 /* Gains values for torque and flux control loops */
-#define PID_TORQUE_KP_DEFAULT         3803
-#define PID_TORQUE_KI_DEFAULT         351
+#define PID_TORQUE_KP_DEFAULT         2853
+#define PID_TORQUE_KI_DEFAULT         2107
 #define PID_TORQUE_KD_DEFAULT         100
-#define PID_FLUX_KP_DEFAULT           3803
-#define PID_FLUX_KI_DEFAULT           351
+#define PID_FLUX_KP_DEFAULT           2853
+#define PID_FLUX_KI_DEFAULT           2107
 #define PID_FLUX_KD_DEFAULT           100
 
 /* Torque/Flux control loop gains dividers*/
-#define TF_KPDIV                      8192
+#define TF_KPDIV                      1024
 #define TF_KIDIV                      16384
 #define TF_KDDIV                      8192
-#define TF_KPDIV_LOG                  LOG2(8192)
+#define TF_KPDIV_LOG                  LOG2(1024)
 #define TF_KIDIV_LOG                  LOG2(16384)
 #define TF_KDDIV_LOG                  LOG2(8192)
 #define TFDIFFERENTIAL_TERM_ENABLING  DISABLE
@@ -92,10 +118,10 @@
 #define PID_SPEED_KD_DEFAULT          0/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
 /* Speed PID parameter dividers */
 #define SP_KPDIV                      8
-#define SP_KIDIV                      4096
+#define SP_KIDIV                      8192
 #define SP_KDDIV                      16
 #define SP_KPDIV_LOG                  LOG2(8)
-#define SP_KIDIV_LOG                  LOG2(4096)
+#define SP_KIDIV_LOG                  LOG2(8192)
 #define SP_KDDIV_LOG                  LOG2(16)
 
 /* USER CODE BEGIN PID_SPEED_INTEGRAL_INIT_DIV */
@@ -137,6 +163,48 @@
                                                           protection (if supported by
                                                           power stage) */
 /******************************   START-UP PARAMETERS   **********************/
+
+/* Phase 1 */
+#define PHASE1_DURATION                0 /*milliseconds */
+#define PHASE1_FINAL_SPEED_UNIT         (0*SPEED_UNIT/_RPM)
+#define PHASE1_FINAL_CURRENT           0
+/* Phase 2 */
+#define PHASE2_DURATION                0 /*milliseconds */
+#define PHASE2_FINAL_SPEED_UNIT         (0*SPEED_UNIT/_RPM)
+#define PHASE2_FINAL_CURRENT           458
+/* Phase 3 */
+#define PHASE3_DURATION                1000 /*milliseconds */
+#define PHASE3_FINAL_SPEED_UNIT         (600*SPEED_UNIT/_RPM)
+#define PHASE3_FINAL_CURRENT           6804
+/* Phase 4 */
+#define PHASE4_DURATION                500 /*milliseconds */
+#define PHASE4_FINAL_SPEED_UNIT         (900*SPEED_UNIT/_RPM)
+#define PHASE4_FINAL_CURRENT           6804
+/* Phase 5 */
+#define PHASE5_DURATION                0 /* milliseconds */
+#define PHASE5_FINAL_SPEED_UNIT         (900*SPEED_UNIT/_RPM)
+#define PHASE5_FINAL_CURRENT           6804
+
+#define ENABLE_SL_ALGO_FROM_PHASE      3
+/* Sensor-less rev-up sequence */
+#define STARTING_ANGLE_DEG             0  /*!< degrees [0...359] */
+/* Observer start-up output conditions  */
+#define OBS_MINIMUM_SPEED_RPM          450
+
+#define NB_CONSECUTIVE_TESTS           2 /* corresponding to
+                                                         former NB_CONSECUTIVE_TESTS/
+                                                         (TF_REGULATION_RATE/
+                                                         MEDIUM_FREQUENCY_TASK_RATE) */
+#define SPEED_BAND_UPPER_LIMIT         17 /*!< It expresses how much
+                                                            estimated speed can exceed
+                                                            forced stator electrical
+                                                            without being considered wrong.
+                                                            In 1/16 of forced speed */
+#define SPEED_BAND_LOWER_LIMIT         15  /*!< It expresses how much
+                                                             estimated speed can be below
+                                                             forced stator electrical
+                                                             without being considered wrong.
+                                                             In 1/16 of forced speed */
 
 #define TRANSITION_DURATION            25  /* Switch over duration, ms */
 /******************************   BUS VOLTAGE Motor 1  **********************/

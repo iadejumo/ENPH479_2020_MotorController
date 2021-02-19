@@ -91,9 +91,10 @@ Application/User/mc_config.o: \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/frame_communication_protocol.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/usart_frame_communication_protocol.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/frame_communication_protocol.h \
- ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/hall_speed_pos_fdbk.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/ramp_ext_mngr.h \
- ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/circle_limitation.h
+ ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/circle_limitation.h \
+ ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/sto_speed_pos_fdbk.h \
+ ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/sto_pll_speed_pos_fdbk.h
 
 ../../Inc/main.h:
 
@@ -289,8 +290,10 @@ Application/User/mc_config.o: \
 
 ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/frame_communication_protocol.h:
 
-../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/hall_speed_pos_fdbk.h:
-
 ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/ramp_ext_mngr.h:
 
 ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/circle_limitation.h:
+
+../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/sto_speed_pos_fdbk.h:
+
+../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/sto_pll_speed_pos_fdbk.h:
