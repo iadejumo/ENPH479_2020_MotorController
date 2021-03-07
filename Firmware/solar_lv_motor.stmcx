@@ -25,7 +25,7 @@
 								<item tag="0" text="Surface Mounted PMSM" />
 							</items>
 						</var>
-						<var version="1.0" type="MC_Int" name="Pole Pairs" enable="true" visible="true" readonly="false" value="8" />
+						<var version="1.0" type="MC_Int" name="Pole Pairs" enable="true" visible="true" readonly="false" value="4" />
 						<var version="1.0" type="MC_Int" name="Max Rated Speed" enable="true" visible="true" readonly="false" value="4000" />
 						<var version="1.0" type="MC_Double" name="Nominal Current" enable="true" visible="true" readonly="false" value="8" />
 						<var version="1.0" type="MC_Double" name="Nominal DC Voltage" enable="true" visible="true" readonly="false" value="24" />
@@ -294,8 +294,8 @@
 						<var version="1.0" type="MC_Int" name="Main - ObsPLL - K2" enable="false" visible="true" readonly="false" value="29700" />
 						<var version="1.0" type="MC_Int" name="Main - ObsPLL - Average speed FIFO depth for speed loop" enable="true" visible="true" readonly="false" value="64" />
 						<var version="1.0" type="MC_Int" name="Main - ObsPLL - Average speed FIFO depth for observer equations" enable="true" visible="true" readonly="false" value="64" />
-						<var version="1.0" type="MC_Int" name="Main - ObsPLL - P dividend" enable="false" visible="true" readonly="false" value="851" />
-						<var version="1.0" type="MC_Int" name="Main - ObsPLL - I dividend" enable="false" visible="true" readonly="false" value="30" />
+						<var version="1.0" type="MC_Int" name="Main - ObsPLL - P dividend" enable="false" visible="true" readonly="false" value="426" />
+						<var version="1.0" type="MC_Int" name="Main - ObsPLL - I dividend" enable="false" visible="true" readonly="false" value="15" />
 						<var version="1.0" type="MC_Int" name="Main - ObsPLL - P divisor" enable="false" visible="true" readonly="false" value="16384" />
 						<var version="1.0" type="MC_Int" name="Main - ObsPLL - I divisor" enable="false" visible="true" readonly="false" value="65536" />
 						<var version="1.0" type="MC_Double" name="Main - ObsCRD - Variance threshold" enable="false" visible="true" readonly="false" value="400" />
@@ -337,8 +337,8 @@
 						<var version="1.0" type="MC_Double" name="Main_HFI_Estimated_speed_Band_tolerance_LL" enable="false" visible="true" readonly="false" value="93.75" />
 						<var version="1.0" type="MC_Bool" name="Main_HFI_Debug" enable="true" visible="true" readonly="false" value="false" />
 						<var version="1.0" type="MC_Bool" name="Main_HFI_RevertDirection" enable="true" visible="true" readonly="false" value="true" />
-						<var version="1.0" type="MC_Bool" name="Aux - Enable auxiliary sensor" enable="true" visible="true" readonly="false" value="false" />
-						<var version="1.0" type="MC_List" name="Aux - Sensor selection" enable="false" visible="true" readonly="false" value="3">
+						<var version="1.0" type="MC_Bool" name="Aux - Enable auxiliary sensor" enable="true" visible="true" readonly="false" value="true" />
+						<var version="1.0" type="MC_List" name="Aux - Sensor selection" enable="true" visible="true" readonly="false" value="3">
 							<items>
 								<item tag="0" text="Sensor-less (Observer+PLL)" />
 								<item tag="1" text="Sensor-less (Observer+Cordic)" />
@@ -368,8 +368,8 @@
 						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - K2" enable="false" visible="true" readonly="false" value="29700" />
 						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - Average speed FIFO depth for speed loop" enable="false" visible="true" readonly="false" value="64" />
 						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - Average speed FIFO depth for observer equations" enable="false" visible="true" readonly="false" value="64" />
-						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - P dividend" enable="false" visible="true" readonly="false" value="851" />
-						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - I dividend" enable="false" visible="true" readonly="false" value="30" />
+						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - P dividend" enable="false" visible="true" readonly="false" value="426" />
+						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - I dividend" enable="false" visible="true" readonly="false" value="15" />
 						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - P divisor" enable="false" visible="true" readonly="false" value="16384" />
 						<var version="1.0" type="MC_Int" name="Aux - ObsPLL - I divisor" enable="false" visible="true" readonly="false" value="65536" />
 						<var version="1.0" type="MC_Double" name="Aux - ObsCRD - Variance threshold" enable="false" visible="true" readonly="false" value="400" />
@@ -439,9 +439,9 @@
 						<var version="1.0" type="MC_Bool" name="SpeedCtrl_Manual_editing" enable="true" visible="true" readonly="false" value="false" />
 						<var version="1.0" type="MC_Double" name="SpeedCtrl - Execution rate" enable="true" visible="true" readonly="false" value="1" />
 						<var version="1.0" type="MC_Int" name="SpeedCtrl - P dividend" enable="true" visible="true" readonly="false" value="2073" />
-						<var version="1.0" type="MC_Int" name="SpeedCtrl - P divisor" enable="true" visible="true" readonly="false" value="8" />
+						<var version="1.0" type="MC_Int" name="SpeedCtrl - P divisor" enable="true" visible="true" readonly="false" value="16" />
 						<var version="1.0" type="MC_Int" name="SpeedCtrl - I dividend" enable="true" visible="true" readonly="false" value="2972" />
-						<var version="1.0" type="MC_Int" name="SpeedCtrl - I divisor" enable="true" visible="true" readonly="false" value="8192" />
+						<var version="1.0" type="MC_Int" name="SpeedCtrl - I divisor" enable="true" visible="true" readonly="false" value="16384" />
 						<var version="1.0" type="MC_Bool" name="SpeedCtrl - Enable differential term" enable="false" visible="true" readonly="false" value="false" />
 						<var version="1.0" type="MC_Int" name="SpeedCtrl - D dividend" enable="false" visible="true" readonly="false" value="0" />
 						<var version="1.0" type="MC_Int" name="SpeedCtrl - D divisor" enable="true" visible="true" readonly="true" value="16" />
@@ -899,7 +899,7 @@
 								<item tag="210" text="B10" />
 							</items>
 						</var>
-						<var version="1.0" type="MC_List" name="DIO - HIT - Timer" enable="false" visible="true" readonly="false" value="0">
+						<var version="1.0" type="MC_List" name="DIO - HIT - Timer" enable="true" visible="true" readonly="false" value="0">
 							<items>
 								<item tag="2" text="TIM2" />
 								<item tag="3" text="TIM3" />
@@ -915,20 +915,20 @@
 								<item tag="3" text="Full re-map" />
 							</items>
 						</var>
-						<var version="1.0" type="MC_List" name="DIO - HIT - Pin - CH1" enable="false" visible="true" readonly="false" value="1">
+						<var version="1.0" type="MC_List" name="DIO - HIT - Pin - CH1" enable="true" visible="true" readonly="false" value="1">
 							<items>
 								<item tag="100" text="A0" />
 								<item tag="115" text="A15" />
 								<item tag="105" text="A5" />
 							</items>
 						</var>
-						<var version="1.0" type="MC_List" name="DIO - HIT - Pin - CH2" enable="false" visible="true" readonly="false" value="1">
+						<var version="1.0" type="MC_List" name="DIO - HIT - Pin - CH2" enable="true" visible="true" readonly="false" value="1">
 							<items>
 								<item tag="101" text="A1" />
 								<item tag="203" text="B3" />
 							</items>
 						</var>
-						<var version="1.0" type="MC_List" name="DIO - HIT - Pin - CH3" enable="false" visible="true" readonly="false" value="1">
+						<var version="1.0" type="MC_List" name="DIO - HIT - Pin - CH3" enable="true" visible="true" readonly="false" value="1">
 							<items>
 								<item tag="102" text="A2" />
 								<item tag="210" text="B10" />
@@ -1975,10 +1975,10 @@
 			<reg version="1.0" id="0" name="Target motor" description="$$DESCR_AS_NAME$$" unit="" type="8" access_mode="2" value="0" value_previous="0" minimum="0" maximum="255" period="0" modified="false" visible="true" enable="true" />
 			<reg version="1.0" id="1" name="Flags" description="$$DESCR_AS_NAME$$" unit="" type="32" access_mode="0" value="0" value_previous="0" minimum="0" maximum="4294967295" period="200" modified="false" visible="true" enable="true" />
 			<reg version="1.0" id="2" name="Status" description="$$DESCR_AS_NAME$$" unit="" type="8" access_mode="0" value="0" value_previous="0" minimum="0" maximum="255" period="200" modified="false" visible="true" enable="true" />
-			<reg version="1.0" id="3" name="Control mode" description="$$DESCR_AS_NAME$$" unit="" type="8" access_mode="2" value="0" value_previous="1" minimum="0" maximum="255" period="500" modified="false" visible="true" enable="true" />
-			<reg version="1.0" id="4" name="Speed reference" description="$$DESCR_AS_NAME$$" unit="RPM" type="160" access_mode="0" value="-126" value_previous="-126" minimum="-4000" maximum="4000" period="200" modified="false" visible="true" enable="true" />
-			<reg version="1.0" id="5" name="Speed Kp" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="2073" value_previous="2073" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="false" />
-			<reg version="1.0" id="6" name="Speed Ki" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="2972" value_previous="2972" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="false" />
+			<reg version="1.0" id="3" name="Control mode" description="$$DESCR_AS_NAME$$" unit="" type="8" access_mode="2" value="1" value_previous="1" minimum="0" maximum="255" period="500" modified="false" visible="true" enable="true" />
+			<reg version="1.0" id="4" name="Speed reference" description="$$DESCR_AS_NAME$$" unit="RPM" type="160" access_mode="0" value="60" value_previous="60" minimum="-5000" maximum="5000" period="200" modified="false" visible="true" enable="true" />
+			<reg version="1.0" id="5" name="Speed Kp" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="2073" value_previous="2073" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="true" />
+			<reg version="1.0" id="6" name="Speed Ki" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="2972" value_previous="2972" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="true" />
 			<reg version="1.0" id="7" name="Speed Kd" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="0" value_previous="0" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="true" />
 			<reg version="1.0" id="8" name="Torque reference (Iq)" description="$$DESCR_AS_NAME$$" unit="" type="144" access_mode="2" value="0" value_previous="0" minimum="-32768" maximum="32767" period="0" modified="false" visible="true" enable="true" />
 			<reg version="1.0" id="9" name="Torque Kp" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="2853" value_previous="2853" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="true" />
@@ -1988,21 +1988,21 @@
 			<reg version="1.0" id="13" name="Flux Kp" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="2853" value_previous="2853" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="true" />
 			<reg version="1.0" id="14" name="Flux Ki" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="2107" value_previous="2107" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="true" />
 			<reg version="1.0" id="15" name="Flux Kd" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="0" value_previous="0" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="true" />
-			<reg version="1.0" id="16" name="Observer C1" description="$$DESCR_AS_NAME$$" unit="" type="144" access_mode="2" value="0" value_previous="0" minimum="-32768" maximum="32767" period="0" modified="false" visible="true" enable="false" />
-			<reg version="1.0" id="17" name="Observer C2" description="$$DESCR_AS_NAME$$" unit="" type="144" access_mode="2" value="0" value_previous="0" minimum="-32768" maximum="32767" period="0" modified="false" visible="true" enable="false" />
+			<reg version="1.0" id="16" name="Observer C1" description="$$DESCR_AS_NAME$$" unit="" type="144" access_mode="2" value="-24009" value_previous="0" minimum="-32768" maximum="32767" period="0" modified="false" visible="true" enable="false" />
+			<reg version="1.0" id="17" name="Observer C2" description="$$DESCR_AS_NAME$$" unit="" type="144" access_mode="2" value="16293" value_previous="0" minimum="-32768" maximum="32767" period="0" modified="false" visible="true" enable="false" />
 			<reg version="1.0" id="18" name="Cordic Observer C1" description="$$DESCR_AS_NAME$$" unit="" type="144" access_mode="2" value="0" value_previous="0" minimum="-32768" maximum="32767" period="0" modified="false" visible="true" enable="false" />
 			<reg version="1.0" id="19" name="Cordic Observer C2" description="$$DESCR_AS_NAME$$" unit="" type="144" access_mode="2" value="0" value_previous="0" minimum="-32768" maximum="32767" period="0" modified="false" visible="true" enable="false" />
-			<reg version="1.0" id="20" name="PLL Ki" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="0" value_previous="0" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="false" />
-			<reg version="1.0" id="21" name="PLL Kp" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="0" value_previous="0" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="false" />
+			<reg version="1.0" id="20" name="PLL Ki" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="30" value_previous="0" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="false" />
+			<reg version="1.0" id="21" name="PLL Kp" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="851" value_previous="0" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="false" />
 			<reg version="1.0" id="22" name="Flux weakening Kp" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="0" value_previous="0" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="false" />
 			<reg version="1.0" id="23" name="Flux weakening Ki" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="0" value_previous="0" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="false" />
 			<reg version="1.0" id="24" name="Flux weakening BUS Voltage allowed percentage reference" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="0" value_previous="0" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="false" />
-			<reg version="1.0" id="25" name="Bus Voltage" description="$$DESCR_AS_NAME$$" unit="Volt" type="16" access_mode="0" value="23" value_previous="23" minimum="0" maximum="28" period="500" modified="false" visible="true" enable="true" />
+			<reg version="1.0" id="25" name="Bus Voltage" description="$$DESCR_AS_NAME$$" unit="Volt" type="16" access_mode="0" value="23" value_previous="23" minimum="0" maximum="32" period="500" modified="false" visible="true" enable="true" />
 			<reg version="1.0" id="26" name="Heatsink Temperature" description="$$DESCR_AS_NAME$$" unit="°C" type="16" access_mode="0" value="25" value_previous="25" minimum="0" maximum="100" period="500" modified="false" visible="true" enable="true" />
 			<reg version="1.0" id="27" name="Motor Power" description="$$DESCR_AS_NAME$$" unit="W" type="16" access_mode="0" value="0" value_previous="0" minimum="0" maximum="200" period="500" modified="false" visible="true" enable="true" />
-			<reg version="1.0" id="28" name="DAC Out 1" description="$$DESCR_AS_NAME$$" unit="" type="8" access_mode="2" value="0" value_previous="0" minimum="0" maximum="255" period="0" modified="false" visible="true" enable="true" />
-			<reg version="1.0" id="29" name="DAC Out 2" description="$$DESCR_AS_NAME$$" unit="" type="8" access_mode="2" value="0" value_previous="0" minimum="0" maximum="255" period="0" modified="false" visible="true" enable="true" />
-			<reg version="1.0" id="30" name="Speed measured" description="$$DESCR_AS_NAME$$" unit="RPM" type="160" access_mode="0" value="0" value_previous="0" minimum="-4000" maximum="4000" period="200" modified="false" visible="true" enable="true" />
+			<reg version="1.0" id="28" name="DAC Out 1" description="$$DESCR_AS_NAME$$" unit="" type="8" access_mode="2" value="0" value_previous="0" minimum="0" maximum="255" period="0" modified="false" visible="true" enable="false" />
+			<reg version="1.0" id="29" name="DAC Out 2" description="$$DESCR_AS_NAME$$" unit="" type="8" access_mode="2" value="0" value_previous="0" minimum="0" maximum="255" period="0" modified="false" visible="true" enable="false" />
+			<reg version="1.0" id="30" name="Speed measured" description="$$DESCR_AS_NAME$$" unit="RPM" type="160" access_mode="0" value="0" value_previous="0" minimum="-5000" maximum="5000" period="200" modified="false" visible="true" enable="true" />
 			<reg version="1.0" id="31" name="Torque measured (Iq)" description="$$DESCR_AS_NAME$$" unit="" type="144" access_mode="0" value="0" value_previous="0" minimum="-32768" maximum="32767" period="200" modified="false" visible="true" enable="true" />
 			<reg version="1.0" id="32" name="Flux measured (Id)" description="$$DESCR_AS_NAME$$" unit="" type="144" access_mode="0" value="0" value_previous="0" minimum="-32768" maximum="32767" period="200" modified="false" visible="true" enable="true" />
 			<reg version="1.0" id="33" name="Flux weakening BUS Voltage allowed percentage measured" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="0" value="0" value_previous="0" minimum="0" maximum="65535" period="200" modified="false" visible="true" enable="false" />
@@ -2063,7 +2063,7 @@
 			<reg version="1.0" id="88" name="PFC Voltage loop Kd" description="$$DESCR_AS_NAME$$" unit="" type="16" access_mode="2" value="0" value_previous="0" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="false" />
 			<reg version="1.0" id="89" name="PFC startup duration" description="$$DESCR_AS_NAME$$" unit="ms" type="16" access_mode="2" value="0" value_previous="0" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="false" />
 			<reg version="1.0" id="90" name="PFC abilitation status" description="$$DESCR_AS_NAME$$" unit="" type="8" access_mode="0" value="0" value_previous="0" minimum="0" maximum="1" period="0" modified="false" visible="true" enable="false" />
-			<reg version="1.0" id="91" name="Ramp final speed" description="$$DESCR_AS_NAME$$" unit="RMS" type="160" access_mode="2" value="-126" value_previous="-126" minimum="-4000" maximum="4000" period="200" modified="false" visible="true" enable="true" />
+			<reg version="1.0" id="91" name="Ramp final speed" description="$$DESCR_AS_NAME$$" unit="RMS" type="160" access_mode="2" value="60" value_previous="60" minimum="-5000" maximum="5000" period="200" modified="false" visible="true" enable="true" />
 			<reg version="1.0" id="92" name="Ramp duration" description="$$DESCR_AS_NAME$$" unit="ms" type="16" access_mode="2" value="0" value_previous="0" minimum="0" maximum="65535" period="0" modified="false" visible="true" enable="false" />
 			<reg version="1.0" id="93" name="HFI electrical angle" description="$$DESCR_AS_NAME$$" unit="" type="144" access_mode="0" value="0" value_previous="0" minimum="-32768" maximum="32767" period="0" modified="false" visible="true" enable="false" />
 			<reg version="1.0" id="94" name="HFI rotor speed" description="$$DESCR_AS_NAME$$" unit="" type="144" access_mode="0" value="0" value_previous="0" minimum="-32768" maximum="32767" period="0" modified="false" visible="true" enable="false" />

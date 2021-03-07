@@ -37,6 +37,16 @@
 #define MEAS_ERRORS_BEFORE_FAULTS       5 /*!< Number of speed
                                                              measurement errors before
                                                              main sensor goes in fault */
+/****** Hall sensors ************/
+#define HALL_MEAS_ERRORS_BEFORE_FAULTS  5 /*!< Number of failed
+                                                           derived class specific speed
+                                                           measurements before main sensor
+                                                           goes in fault */
+
+#define HALL_AVERAGING_FIFO_DEPTH        6 /*!< depth of the FIFO used to
+                                                           average mechanical speed in
+                                                           0.1Hz resolution */
+#define HALL_MTPA  false
 /****** State Observer + PLL ****/
 #define VARIANCE_THRESHOLD              0.1 /*!<Maximum accepted
                                                             variance on speed
@@ -51,8 +61,8 @@
 #define GAIN1                            -24009
 #define GAIN2                            16293
 /*Only in case PLL is used, PLL gains */
-#define PLL_KP_GAIN                      851
-#define PLL_KI_GAIN                      30
+#define PLL_KP_GAIN                      426
+#define PLL_KI_GAIN                      15
 #define PLL_KPDIV     16384
 #define PLL_KPDIV_LOG LOG2(PLL_KPDIV)
 #define PLL_KIDIV     65535
@@ -117,11 +127,11 @@
 #define PID_SPEED_KI_DEFAULT          2972/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
 #define PID_SPEED_KD_DEFAULT          0/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
 /* Speed PID parameter dividers */
-#define SP_KPDIV                      8
-#define SP_KIDIV                      8192
+#define SP_KPDIV                      16
+#define SP_KIDIV                      16384
 #define SP_KDDIV                      16
-#define SP_KPDIV_LOG                  LOG2(8)
-#define SP_KIDIV_LOG                  LOG2(8192)
+#define SP_KPDIV_LOG                  LOG2(16)
+#define SP_KIDIV_LOG                  LOG2(16384)
 #define SP_KDDIV_LOG                  LOG2(16)
 
 /* USER CODE BEGIN PID_SPEED_INTEGRAL_INIT_DIV */
