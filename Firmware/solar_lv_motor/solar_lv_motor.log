@@ -701,3 +701,5 @@ Started STM32CubeMX for final c-code generation
 2021-03-06 16:27:26,361 DEBUG [LineInfo_to_exitCode.log_LineInfo] 2021-03-06 16:27:26,360 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 1282mS.
 2021-03-06 16:29:57,992 DEBUG [CubeMxCtx.EXE_version] Loaded path: 'C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeMX\STM32CubeMX.exe'
 2021-03-06 16:29:57,992 DEBUG [CubeMxCtx.EXE_version] Loaded updater jar: 'C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeMX\plugins\updater.jar'
+2021-03-06 16:41:55,328 INFO  [Main.lambda$run$0] Code generation completed
+2021-03-06 16:41:55,337 DEBUG [Main.lambda$run$0] System exists with return code 0

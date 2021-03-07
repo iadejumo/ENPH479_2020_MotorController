@@ -87,6 +87,7 @@ Application/User/mc_tasks.o: \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/frame_communication_protocol.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/F4xx/Inc/ics_f4xx_pwm_curr_fdbk.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/ics_dd_pwmncurrfdbk.h \
+ ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/hall_speed_pos_fdbk.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/ramp_ext_mngr.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/circle_limitation.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/sto_speed_pos_fdbk.h \
@@ -282,6 +283,8 @@ Application/User/mc_tasks.o: \
 ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/F4xx/Inc/ics_f4xx_pwm_curr_fdbk.h:
 
 ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/ics_dd_pwmncurrfdbk.h:
+
+../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/hall_speed_pos_fdbk.h:
 
 ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/ramp_ext_mngr.h:
 
