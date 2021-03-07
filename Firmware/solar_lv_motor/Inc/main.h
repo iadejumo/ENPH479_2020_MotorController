@@ -68,6 +68,8 @@ void Error_Handler(void);
 #define UART_RX_GPIO_Port GPIOA
 #define M1_CURR_AMPL_V_Pin GPIO_PIN_4
 #define M1_CURR_AMPL_V_GPIO_Port GPIOA
+#define DBG_DAC_CH2_Pin GPIO_PIN_5
+#define DBG_DAC_CH2_GPIO_Port GPIOA
 #define M1_OCP_Pin GPIO_PIN_6
 #define M1_OCP_GPIO_Port GPIOA
 #define M1_BUS_VOLTAGE_Pin GPIO_PIN_5

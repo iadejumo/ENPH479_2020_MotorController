@@ -26,6 +26,8 @@ Middlewares/MotorControl/frame_communication_protocol.o: \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h \
+ ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac.h \
+ ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac_ex.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
@@ -75,7 +77,9 @@ Middlewares/MotorControl/frame_communication_protocol.o: \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/encoder_speed_pos_fdbk.h \
  ../../Inc/motor_control_protocol.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/frame_communication_protocol.h \
- ../../Inc/user_interface.h
+ ../../Inc/user_interface.h \
+ ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/dac_ui.h \
+ ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/dac_common_ui.h
 
 ../../Inc/user_interface.h:
 
@@ -128,6 +132,10 @@ Middlewares/MotorControl/frame_communication_protocol.o: \
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h:
 
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h:
+
+../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac.h:
+
+../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac_ex.h:
 
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 
@@ -230,3 +238,7 @@ Middlewares/MotorControl/frame_communication_protocol.o: \
 ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/frame_communication_protocol.h:
 
 ../../Inc/user_interface.h:
+
+../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/dac_ui.h:
+
+../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/dac_common_ui.h:

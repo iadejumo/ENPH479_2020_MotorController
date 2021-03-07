@@ -6,6 +6,7 @@
 C_SRCS += \
 C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Src/bus_voltage_sensor.c \
 C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Src/circle_limitation.c \
+C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Src/dac_common_ui.c \
 C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Src/digital_output.c \
 C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Src/frame_communication_protocol.c \
 C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c \
@@ -29,6 +30,7 @@ C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_l
 OBJS += \
 ./Middlewares/MotorControl/bus_voltage_sensor.o \
 ./Middlewares/MotorControl/circle_limitation.o \
+./Middlewares/MotorControl/dac_common_ui.o \
 ./Middlewares/MotorControl/digital_output.o \
 ./Middlewares/MotorControl/frame_communication_protocol.o \
 ./Middlewares/MotorControl/hall_speed_pos_fdbk.o \
@@ -52,6 +54,7 @@ OBJS += \
 C_DEPS += \
 ./Middlewares/MotorControl/bus_voltage_sensor.d \
 ./Middlewares/MotorControl/circle_limitation.d \
+./Middlewares/MotorControl/dac_common_ui.d \
 ./Middlewares/MotorControl/digital_output.d \
 ./Middlewares/MotorControl/frame_communication_protocol.d \
 ./Middlewares/MotorControl/hall_speed_pos_fdbk.d \
@@ -78,6 +81,8 @@ Middlewares/MotorControl/bus_voltage_sensor.o: C:/Users/chuan/Documents/workspac
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DARM_MATH_CM4 -DSTM32F446xx -DDEBUG -c -I../../Inc -I../../Drivers/STM32F4xx_HAL_Driver/Inc -I../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/F4xx/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/SystemDriveParams -I../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../../Drivers/CMSIS/Include -I../../Drivers/CMSIS/DSP/Include -Ofast -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/MotorControl/bus_voltage_sensor.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 Middlewares/MotorControl/circle_limitation.o: C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Src/circle_limitation.c
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DARM_MATH_CM4 -DSTM32F446xx -DDEBUG -c -I../../Inc -I../../Drivers/STM32F4xx_HAL_Driver/Inc -I../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/F4xx/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/SystemDriveParams -I../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../../Drivers/CMSIS/Include -I../../Drivers/CMSIS/DSP/Include -Ofast -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/MotorControl/circle_limitation.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
+Middlewares/MotorControl/dac_common_ui.o: C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Src/dac_common_ui.c
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DARM_MATH_CM4 -DSTM32F446xx -DDEBUG -c -I../../Inc -I../../Drivers/STM32F4xx_HAL_Driver/Inc -I../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/F4xx/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/SystemDriveParams -I../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../../Drivers/CMSIS/Include -I../../Drivers/CMSIS/DSP/Include -Ofast -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/MotorControl/dac_common_ui.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 Middlewares/MotorControl/digital_output.o: C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Src/digital_output.c
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DARM_MATH_CM4 -DSTM32F446xx -DDEBUG -c -I../../Inc -I../../Drivers/STM32F4xx_HAL_Driver/Inc -I../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/F4xx/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/SystemDriveParams -I../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../../Drivers/CMSIS/Include -I../../Drivers/CMSIS/DSP/Include -Ofast -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Middlewares/MotorControl/digital_output.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 Middlewares/MotorControl/frame_communication_protocol.o: C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Src/frame_communication_protocol.c

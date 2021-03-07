@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/Src/dac_ui.c \
 C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/Src/main.c \
 C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/Src/mc_api.c \
 C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/Src/mc_config.c \
@@ -23,6 +24,7 @@ C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_l
 C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/Src/user_interface.c 
 
 OBJS += \
+./Application/User/dac_ui.o \
 ./Application/User/main.o \
 ./Application/User/mc_api.o \
 ./Application/User/mc_config.o \
@@ -42,6 +44,7 @@ OBJS += \
 ./Application/User/user_interface.o 
 
 C_DEPS += \
+./Application/User/dac_ui.d \
 ./Application/User/main.d \
 ./Application/User/mc_api.d \
 ./Application/User/mc_config.d \
@@ -62,6 +65,8 @@ C_DEPS += \
 
 
 # Each subdirectory must supply rules for building sources it contributes
+Application/User/dac_ui.o: C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/Src/dac_ui.c
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DARM_MATH_CM4 -DSTM32F446xx -DDEBUG -c -I../../Inc -I../../Drivers/STM32F4xx_HAL_Driver/Inc -I../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/F4xx/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/SystemDriveParams -I../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../../Drivers/CMSIS/Include -I../../Drivers/CMSIS/DSP/Include -Ofast -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/User/dac_ui.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 Application/User/main.o: C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/Src/main.c
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DARM_MATH_CM4 -DSTM32F446xx -DDEBUG -c -I../../Inc -I../../Drivers/STM32F4xx_HAL_Driver/Inc -I../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/F4xx/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc -I../../MCSDK_v5.4.5/MotorControl/MCSDK/SystemDriveParams -I../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../../Drivers/CMSIS/Include -I../../Drivers/CMSIS/DSP/Include -Ofast -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/User/main.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 Application/User/mc_api.o: C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/Src/mc_api.c

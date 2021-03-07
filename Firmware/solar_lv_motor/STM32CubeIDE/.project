@@ -37,6 +37,11 @@
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/solar_lv_motor.ioc</locationURI>
 		</link>
 		<link>
+			<name>Application/User/dac_ui.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Src/dac_ui.c</locationURI>
+		</link>
+		<link>
 			<name>Application/User/main.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Src/main.c</locationURI>
@@ -137,6 +142,16 @@
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c</locationURI>
 		</link>
 		<link>
+			<name>Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_dac.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_dac_ex.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c</locationURI>
+		</link>
+		<link>
 			<name>Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_dma.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c</locationURI>
@@ -215,6 +230,11 @@
 			<name>Middlewares/MotorControl/circle_limitation.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Src/circle_limitation.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/MotorControl/dac_common_ui.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Src/dac_common_ui.c</locationURI>
 		</link>
 		<link>
 			<name>Middlewares/MotorControl/digital_output.c</name>

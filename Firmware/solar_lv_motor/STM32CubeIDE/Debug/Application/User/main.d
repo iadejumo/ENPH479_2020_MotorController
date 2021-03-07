@@ -22,6 +22,8 @@ Application/User/main.o: \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h \
+ ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac.h \
+ ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac_ex.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
@@ -84,8 +86,12 @@ Application/User/main.o: \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/encoder_speed_pos_fdbk.h \
  ../../Inc/motor_control_protocol.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/frame_communication_protocol.h \
+ ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/dac_ui.h \
+ ../../Inc/user_interface.h \
+ ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/dac_common_ui.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/usart_frame_communication_protocol.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/frame_communication_protocol.h \
+ ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/dac_common_ui.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/F4xx/Inc/ics_f4xx_pwm_curr_fdbk.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/ics_dd_pwmncurrfdbk.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/hall_speed_pos_fdbk.h \
@@ -143,6 +149,10 @@ Application/User/main.o: \
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h:
 
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h:
+
+../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac.h:
+
+../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac_ex.h:
 
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 
@@ -272,9 +282,17 @@ Application/User/main.o: \
 
 ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/frame_communication_protocol.h:
 
+../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/dac_ui.h:
+
+../../Inc/user_interface.h:
+
+../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/dac_common_ui.h:
+
 ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/usart_frame_communication_protocol.h:
 
 ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/frame_communication_protocol.h:
+
+../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/dac_common_ui.h:
 
 ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/F4xx/Inc/ics_f4xx_pwm_curr_fdbk.h:
 

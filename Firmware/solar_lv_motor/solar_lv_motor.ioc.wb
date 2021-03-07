@@ -580,6 +580,13 @@ SH.wbsh_ADC1_IN15_PC5.ConfNb=1
 # DAC                                                                                                                  #
 ########################################################################################################################
 
+PA5.GPIOParameters=GPIO_Label
+PA5.GPIO_Label=DBG_DAC_CH2
+PA5.Locked=true
+PA5.Signal=COMP_DAC2_group
+SH.COMP_DAC2_group.0=DAC_OUT2,Enable_DAC_OUT2
+SH.COMP_DAC2_group.ConfNb=1
+
 ########################################################################################################################
 
 ########################################################################################################################
@@ -758,6 +765,20 @@ ADC2.IPParameters=ClockPrescaler,Resolution,DataAlign,ContinuousConvMode,Discont
 ########################################################################################################################
 
 ########################################################################################################################
+# DAC                                                                                                                  #
+########################################################################################################################
+#                                                 DAC Settings for DAC                                                 #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+DAC.DAC_Trigger2=DAC_TRIGGER_SOFTWARE
+DAC.DAC_OutputBuffer2=DAC_OUTPUTBUFFER_DISABLE
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#                                                   DAC IPParameters                                                   #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+DAC.IPParameters=DAC_Trigger2,DAC_OutputBuffer2
+########################################################################################################################
+
+########################################################################################################################
 # Mcu Pins                                                                                                             #
 ########################################################################################################################
 Mcu.Pin0=VP_SYS_VS_Systick
@@ -781,9 +802,10 @@ Mcu.Pin17=PA15
 Mcu.Pin18=PB3
 Mcu.Pin19=PB10
 Mcu.Pin20=PC5
-Mcu.Pin21=PA2
-Mcu.Pin22=PA3
-Mcu.PinsNb=23
+Mcu.Pin21=PA5
+Mcu.Pin22=PA2
+Mcu.Pin23=PA3
+Mcu.PinsNb=24
 ########################################################################################################################
 
 ########################################################################################################################
@@ -797,8 +819,9 @@ Mcu.IP4=TIM1
 Mcu.IP5=ADC1
 Mcu.IP6=ADC2
 Mcu.IP7=TIM2
-Mcu.IP8=USART2
-Mcu.IPNb=9
+Mcu.IP8=DAC
+Mcu.IP9=USART2
+Mcu.IPNb=10
 ########################################################################################################################
 
 
@@ -856,18 +879,18 @@ MotorControl.CUBE_MX_VER=6.1.1
 MotorControl.CURR_SAMPLING_TIME=15
 MotorControl.CURRENT_READING_TOPOLOGY=ICS_SENSORS
 MotorControl.DAC_EMULATED=false
-MotorControl.DAC_FUNCTIONALITY=false
+MotorControl.DAC_FUNCTIONALITY=true
 MotorControl.DAC_TIMER_CH1_GPIO_PIN=LL_GPIO_PIN_0
 MotorControl.DAC_TIMER_CH1_GPIO_PORT=GPIOA
-MotorControl.DAC_TIMER_CH2_GPIO_PIN=LL_GPIO_PIN_0
+MotorControl.DAC_TIMER_CH2_GPIO_PIN=LL_GPIO_PIN_5
 MotorControl.DAC_TIMER_CH2_GPIO_PORT=GPIOA
 MotorControl.DAC_TIMER_SELECTION=TIM3
 MotorControl.DC_CURRENT_RS_MEAS=8.00
 MotorControl.DEBUG_DAC_CH1=false
-MotorControl.DEBUG_DAC_CH2=false
+MotorControl.DEBUG_DAC_CH2=true
 MotorControl.DEFAULT_CONTROL_MODE=STC_TORQUE_MODE
-MotorControl.DEFAULT_DAC_CHANNEL_1=MC_PROTOCOL_REG_MEAS_EL_ANGLE
-MotorControl.DEFAULT_DAC_CHANNEL_2=MC_PROTOCOL_REG_OBS_EL_ANGLE
+MotorControl.DEFAULT_DAC_CHANNEL_1=MC_PROTOCOL_REG_MEAS_ROT_SPEED
+MotorControl.DEFAULT_DAC_CHANNEL_2=MC_PROTOCOL_REG_MEAS_ROT_SPEED
 MotorControl.DEFAULT_DAC_MOTOR=0
 MotorControl.DEFAULT_FLUX_COMPONENT=0
 MotorControl.DEFAULT_TARGET_SPEED_RPM=1500
@@ -986,7 +1009,7 @@ MotorControl.INRUSH_CURRLIMIT_GPIO_PIN=LL_GPIO_PIN_4
 MotorControl.INRUSH_CURRLIMIT_GPIO_PORT=GPIOE
 MotorControl.INTERNAL_OVERCURRENTPROTECTION=false
 MotorControl.INTERNAL_OVERVOLTAGEPROTECTION=false
-MotorControl.IPs=NVIC,RCC,SYS,MotorControl,TIM1,ADC1,ADC2,TIM2,USART2
+MotorControl.IPs=NVIC,RCC,SYS,MotorControl,TIM1,ADC1,ADC2,TIM2,DAC,USART2
 MotorControl.IQMAX=12233
 MotorControl.LCD_JOYSTICK_FUNCTIONALITY=false
 MotorControl.LCD_MODE=LCD_FULL
@@ -1309,10 +1332,11 @@ MotorControl.WB_to_Mx_version=1.2.2
 # 2-SystemClock_Config-RCC-false-HAL-false,\                                                                           #
 # 3-MX_ADC1_Init-ADC1-false-HAL-true,\                                                                                 #
 # 4-MX_ADC2_Init-ADC2-false-HAL-true,\                                                                                 #
-# 5-MX_TIM1_Init-TIM1-false-HAL-true,\                                                                                 #
-# 6-MX_TIM2_Init-TIM2-false-HAL-true,\                                                                                 #
-# 7-MX_USART2_UART_Init-USART2-false-HAL-true,\                                                                        #
-# 8-MX_MotorControl_Init-MotorControl-false-HAL-true                                                                   #
+# 5-MX_DAC_Init-DAC-false-HAL-true,\                                                                                   #
+# 6-MX_TIM1_Init-TIM1-false-HAL-true,\                                                                                 #
+# 7-MX_TIM2_Init-TIM2-false-HAL-true,\                                                                                 #
+# 8-MX_USART2_UART_Init-USART2-false-HAL-true,\                                                                        #
+# 9-MX_MotorControl_Init-MotorControl-false-HAL-true                                                                   #
 ########################################################################################################################
 
 Mcu.UserConstants=
