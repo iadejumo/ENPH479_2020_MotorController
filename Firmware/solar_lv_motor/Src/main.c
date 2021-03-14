@@ -23,7 +23,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <string.h>
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -81,6 +82,10 @@ static void MX_NVIC_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+	// raw 12-bit ADC reading
+	uint16_t pot1_raw;
+	// serial debug msg
+	char msg_debug[10];
 
   /* USER CODE END 1 */
 
@@ -120,6 +125,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  // get potentiometer 1 ADC value
+	  HAL_ADC_Start(&hadc1);
+	  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+	  pot1_raw = HAL_ADC_GetValue(&hadc1);
+
+	  sprintf(msg_debug, "%hu\r\n", pot1_raw);
+	  HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -256,8 +268,6 @@ static void MX_ADC1_Init(void)
   sConfig.Channel = ADC_CHANNEL_15;
   sConfig.Rank = 1;
   sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
-  sConfig.Offset = 0;
-
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
