@@ -15,4 +15,4 @@ mc_tasks.c:257:13:MC_RunMotorControlTasks	8	static
 mc_tasks.c:768:23:GetMCI	0	static
 mc_tasks.c:787:22:GetMCT	0	static
 mc_tasks.c:803:13:TSK_HardwareFaultTask	8	static
-mc_tasks.c:818:13:mc_lock_pins	72	static
+mc_tasks.c:818:13:mc_lock_pins	80	static

@@ -72,6 +72,8 @@ void Error_Handler(void);
 #define DBG_DAC_CH2_GPIO_Port GPIOA
 #define M1_OCP_Pin GPIO_PIN_6
 #define M1_OCP_GPIO_Port GPIOA
+#define M1_TEMPERATURE_Pin GPIO_PIN_4
+#define M1_TEMPERATURE_GPIO_Port GPIOC
 #define M1_BUS_VOLTAGE_Pin GPIO_PIN_5
 #define M1_BUS_VOLTAGE_GPIO_Port GPIOC
 #define M1_HALL_H3_Pin GPIO_PIN_10

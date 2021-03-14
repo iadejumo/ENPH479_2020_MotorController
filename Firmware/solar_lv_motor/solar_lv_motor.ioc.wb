@@ -526,11 +526,20 @@ SH.S_TIM2_CH3.ConfNb=1
 #         sampling_time  : 3                                                                                           #
 #         sampling_cycles: 0                                                                                           #
 #         motor          : 1                                                                                           #
+#......................................................................................................................#
+#     M1_TEMPERATURE                                                                                                   #
+#         pin            : PC4                                                                                         #
+#         ip             : ADC1                                                                                        #
+#         channel        : ADC_CHANNEL_14                                                                              #
+#         isChShared     : false                                                                                       #
+#         sampling_time  : 28                                                                                          #
+#         sampling_cycles: 0                                                                                           #
+#         motor          : 1                                                                                           #
 #xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx#
 
 
 
-#                                         ADC1 M1_BUS_VOLTAGE Sensing settings                                         #
+#                                ADC1 M1_BUS_VOLTAGE and M1_TEMPERATURE Sensing settings                               #
 #......................................................................................................................#
 # The ADC settings section was POSTPONED. Will be part of a cumulative section dedicated to all ADCs                   #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -544,6 +553,17 @@ PC5.Locked=true
 PC5.Signal=wbsh_ADC1_IN15_PC5
 SH.wbsh_ADC1_IN15_PC5.0=ADC1_IN15,IN15
 SH.wbsh_ADC1_IN15_PC5.ConfNb=1
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#                                       GPIO settings for M1_TEMPERATURE Sensing                                       #
+#......................................................................................................................#
+# M1_TEMPERATURE                                                                                                       #
+PC4.GPIOParameters=GPIO_Label
+PC4.GPIO_Label=M1_TEMPERATURE
+PC4.Locked=true
+
+PC4.Signal=wbsh_ADC1_IN14_PC4
+SH.wbsh_ADC1_IN14_PC4.0=ADC1_IN14,IN14
+SH.wbsh_ADC1_IN14_PC4.ConfNb=1
 ########################################################################################################################
 
 ########################################################################################################################
@@ -688,7 +708,7 @@ ADC1.SamplingTime-1\#ChannelInjectedConversion=ADC_SAMPLETIME_15CYCLES
 ADC1.InjectedOffset-1\#ChannelInjectedConversion=0
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#                                         ADC1 M1_BUS_VOLTAGE Sensing settings                                         #
+#                                ADC1 M1_BUS_VOLTAGE and M1_TEMPERATURE Sensing settings                               #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 ADC1.EnableRegularConversion=ENABLE
 
@@ -697,17 +717,26 @@ ADC1.ExternalTrigConvEdge=ADC_EXTERNALTRIGCONVEDGE_NONE
 
 ADC1.ScanConvMode=ENABLE
 ADC1.NbrOfConversionFlag=1
-ADC1.NbrOfConversion=1
+ADC1.NbrOfConversion=2
+
+# M1_BUS_VOLTAGE
 ADC1.Rank-1\#ChannelRegularConversion=1
 ADC1.Channel-1\#ChannelRegularConversion=ADC_CHANNEL_15
 ADC1.SamplingTime-1\#ChannelRegularConversion=ADC_SAMPLETIME_3CYCLES
 ADC1.OffsetNumber-1\#ChannelRegularConversion=ADC_OFFSET_NONE
 ADC1.Offset-1\#ChannelRegularConversion=0
 
+# M1_TEMPERATURE
+ADC1.Rank-2\#ChannelRegularConversion=2
+ADC1.Channel-2\#ChannelRegularConversion=ADC_CHANNEL_14
+ADC1.SamplingTime-2\#ChannelRegularConversion=ADC_SAMPLETIME_28CYCLES
+ADC1.OffsetNumber-2\#ChannelRegularConversion=ADC_OFFSET_NONE
+ADC1.Offset-2\#ChannelRegularConversion=0
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #                                                   ADC1 IPParameters                                                  #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-ADC1.IPParameters=ClockPrescaler,Resolution,DataAlign,ContinuousConvMode,DiscontinuousConvMode,DMAContinuousRequests,EOCSelection,EnableAnalogWatchDog,EnableInjectedConversion,InjectedConvMode,ExternalTrigInjecConv,ExternalTrigInjecConvEdge,InjNumberOfConversion,InjectedRank-1\#ChannelInjectedConversion,Channel-1\#ChannelInjectedConversion,SamplingTime-1\#ChannelInjectedConversion,InjectedOffset-1\#ChannelInjectedConversion,EnableRegularConversion,ExternalTrigConv,ExternalTrigConvEdge,ScanConvMode,NbrOfConversionFlag,NbrOfConversion,Rank-1\#ChannelRegularConversion,Channel-1\#ChannelRegularConversion,SamplingTime-1\#ChannelRegularConversion,OffsetNumber-1\#ChannelRegularConversion,Offset-1\#ChannelRegularConversion
+ADC1.IPParameters=ClockPrescaler,Resolution,DataAlign,ContinuousConvMode,DiscontinuousConvMode,DMAContinuousRequests,EOCSelection,EnableAnalogWatchDog,EnableInjectedConversion,InjectedConvMode,ExternalTrigInjecConv,ExternalTrigInjecConvEdge,InjNumberOfConversion,InjectedRank-1\#ChannelInjectedConversion,Channel-1\#ChannelInjectedConversion,SamplingTime-1\#ChannelInjectedConversion,InjectedOffset-1\#ChannelInjectedConversion,EnableRegularConversion,ExternalTrigConv,ExternalTrigConvEdge,ScanConvMode,NbrOfConversionFlag,NbrOfConversion,Rank-1\#ChannelRegularConversion,Channel-1\#ChannelRegularConversion,SamplingTime-1\#ChannelRegularConversion,OffsetNumber-1\#ChannelRegularConversion,Offset-1\#ChannelRegularConversion,Rank-2\#ChannelRegularConversion,Channel-2\#ChannelRegularConversion,SamplingTime-2\#ChannelRegularConversion,OffsetNumber-2\#ChannelRegularConversion,Offset-2\#ChannelRegularConversion
 ########################################################################################################################
 
 ########################################################################################################################
@@ -802,10 +831,11 @@ Mcu.Pin17=PA15
 Mcu.Pin18=PB3
 Mcu.Pin19=PB10
 Mcu.Pin20=PC5
-Mcu.Pin21=PA5
-Mcu.Pin22=PA2
-Mcu.Pin23=PA3
-Mcu.PinsNb=24
+Mcu.Pin21=PC4
+Mcu.Pin22=PA5
+Mcu.Pin23=PA2
+Mcu.Pin24=PA3
+Mcu.PinsNb=25
 ########################################################################################################################
 
 ########################################################################################################################
@@ -1291,7 +1321,7 @@ MotorControl.TEMP_FDBK_ADC=ADC1
 MotorControl.TEMP_FDBK_CHANNEL=ADC_CHANNEL_14
 MotorControl.TEMP_FDBK_GPIO_PIN=LL_GPIO_PIN_4
 MotorControl.TEMP_FDBK_GPIO_PORT=GPIOC
-MotorControl.TEMPERATURE_READING=false
+MotorControl.TEMPERATURE_READING=true
 MotorControl.TF_KDDIV=8192
 MotorControl.TF_KIDIV=16384
 MotorControl.TF_KPDIV=1024

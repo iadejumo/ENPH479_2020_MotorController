@@ -25,6 +25,7 @@
 /* USER CODE BEGIN Includes */
 #include <string.h>
 #include <stdio.h>
+#include "regular_conversion_manager.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -82,10 +83,16 @@ static void MX_NVIC_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	// raw 12-bit ADC reading
-	//uint16_t pot1_raw;
-	// serial debug msg
-	//char msg_debug[10];
+//  raw 12-bit ADC reading
+	uint16_t potentiometer_value;
+//	// serial debug msg
+	char msg_debug[10];
+	RegConv_t PotentiometerConv;
+	uint8_t PotentiometerHandle;
+	PotentiometerConv.regADC = ADC1 ; /* to be modify to match your ADC */
+	PotentiometerConv.channel = ADC_CHANNEL_8;/* to be modify to match your ADC channel */
+	PotentiometerConv.samplingTime = ADC_SAMPLETIME_3CYCLES; /* to be modify to match your sampling time */
+	PotentiometerHandle = RCM_RegisterRegConv (&PotentiometerConv);
 
   /* USER CODE END 1 */
 
@@ -118,6 +125,8 @@ int main(void)
   /* Initialize interrupts */
   MX_NVIC_Init();
   /* USER CODE BEGIN 2 */
+
+  //sprintf(msg_debug, "%hu\r\n", "ADC Started\n");
   //MC_ProgramSpeedRampMotor1(500/6.0, 1500);
   //MC_StartMotor1();
 
@@ -127,13 +136,25 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  //HAL_ADC_Start(&hadc1, pot1_raw, 3);
+	  //HAL_ADC_Start(&hadc1);
 	  // get potentiometer 1 ADC value
-//	  HAL_ADC_Start(&hadc1);
-//	  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-//	  pot1_raw = HAL_ADC_GetValue(&hadc1);
-//
-//	  sprintf(msg_debug, "%hu\r\n", pot1_raw);
-//	  HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
+	  //HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+	  //pot1_raw = HAL_ADC_GetValue(&hadc1);
+
+	  if (RCM_GetUserConvState() == RCM_USERCONV_IDLE)
+	      {
+		  /* if Idle, then program a new conversion request */
+	       RCM_RequestUserConv(PotentiometerHandle );
+	      }
+
+	      else if (RCM_GetUserConvState() == RCM_USERCONV_EOC)
+	      {
+	       /* if Done, then read the captured value */
+	       potentiometer_value = RCM_GetUserConv();
+	       sprintf(msg_debug, "%hu\r\n", potentiometer_value);
+	       HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
+	      }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -243,7 +264,7 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.DataAlign = ADC_DATAALIGN_LEFT;
-  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.NbrOfConversion = 2;
   hadc1.Init.DMAContinuousRequests = DISABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
@@ -270,8 +291,15 @@ static void MX_ADC1_Init(void)
   sConfig.Channel = ADC_CHANNEL_15;
   sConfig.Rank = 1;
   sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
-  sConfig.Offset = 0;
-
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_14;
+  sConfig.Rank = 2;
+  sConfig.SamplingTime = ADC_SAMPLETIME_28CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();

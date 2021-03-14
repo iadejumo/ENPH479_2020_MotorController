@@ -40,7 +40,7 @@
 		<define key="OVERCURR_FEEDBACK_POLARITY" value="EMSTOP_ACTIVE_HIGH" />
 		<define key="OVERCURR_PROTECTION_HW_DISABLING" value="DOUT_ACTIVE_HIGH" />
 		<define key="OCP_COMP_THRESHOLD" value="2.27" />
-		<define key="TEMPERATURE_READING" value="DISABLE" />
+		<define key="TEMPERATURE_READING" value="ENABLE" />
 		<define key="OV_TEMPERATURE_PROT_ENABLING" value="DISABLE" />
 		<define key="OV_TEMPERATURE_THRESHOLD_C" value="125" />
 		<define key="OV_TEMPERATURE_HYSTERESIS_C" value="10" />
