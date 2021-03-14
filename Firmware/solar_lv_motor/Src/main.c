@@ -85,6 +85,8 @@ int main(void)
   /* USER CODE BEGIN 1 */
 //  raw 12-bit ADC reading
 	uint16_t potentiometer_value;
+	uint16_t user_speed;
+	uint16_t mcwb_speed;
 //	// serial debug msg
 	char msg_debug[10];
 	RegConv_t PotentiometerConv;
@@ -127,8 +129,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   //sprintf(msg_debug, "%hu\r\n", "ADC Started\n");
-  //MC_ProgramSpeedRampMotor1(500/6.0, 1500);
-  //MC_StartMotor1();
+  MC_ProgramSpeedRampMotor1(500/6.0, 1500);
+  MC_StartMotor1();
 
   /* USER CODE END 2 */
 
@@ -152,7 +154,20 @@ int main(void)
 	      {
 	       /* if Done, then read the captured value */
 	       potentiometer_value = RCM_GetUserConv();
-	       sprintf(msg_debug, "%hu\r\n", potentiometer_value);
+	       user_speed = potentiometer_value * 4000.0 / 65520.0;
+	       mcwb_speed = user_speed/6.0;
+
+	       MC_ProgramSpeedRampMotor1(mcwb_speed, 1500);
+	       HAL_Delay(2000);
+
+	       if(user_speed < 100){
+	    	   MC_StopMotor1();
+	       }
+
+	       // TODO: Refactor to using ramp state check
+	       // TODO: configure blue button for start stop (change direction)
+
+	       sprintf(msg_debug, "%hu\r\n", user_speed);
 	       HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
 	      }
     /* USER CODE END WHILE */
