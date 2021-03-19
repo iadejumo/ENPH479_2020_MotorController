@@ -1,5 +1,5 @@
 Application/User/mc_tasks.o: \
- C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/Src/mc_tasks.c \
+ C:/Users/Alex/Desktop/ENPH479\ Motor\ Controller/ENPH479_2020_MotorController/Firmware/solar_lv_motor/Src/mc_tasks.c \
  ../../Inc/main.h ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../../Inc/stm32f4xx_hal_conf.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -32,6 +32,8 @@ Application/User/mc_tasks.o: \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ ../../Inc/motorcontrol.h ../../Inc/mc_config.h \
+ ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/pid_regulator.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/mc_type.h \
  ../../Inc/mc_stm_types.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_system.h \
@@ -42,9 +44,6 @@ Application/User/mc_tasks.o: \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dac.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_bus.h \
- ../../Inc/mc_math.h ../../Inc/motorcontrol.h ../../Inc/mc_config.h \
- ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/pid_regulator.h \
- ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/mc_type.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/revup_ctrl.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/speed_torq_ctrl.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/pid_regulator.h \
@@ -62,7 +61,9 @@ Application/User/mc_tasks.o: \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/virtual_bus_voltage_sensor.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/pqd_motor_power_measurement.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/motor_power_measurement.h \
- ../../Inc/user_interface.h ../../Inc/mc_interface.h \
+ ../../Inc/user_interface.h \
+ ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/mc_type.h \
+ ../../Inc/mc_interface.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/state_machine.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/mc_tuning.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/revup_ctrl.h \
@@ -101,7 +102,8 @@ Application/User/mc_tasks.o: \
  ../../Inc/parameters_conversion.h ../../Inc/mc_math.h \
  ../../Inc/parameters_conversion_f4xx.h ../../Inc/pmsm_motor_parameters.h \
  ../../Inc/power_stage_parameters.h ../../Inc/drive_parameters.h \
- ../../Inc/mc_api.h ../../Inc/mc_interface.h \
+ ../../Inc/mc_api.h ../../Inc/mc_math.h ../../Inc/motorcontrol.h \
+ ../../Inc/mc_interface.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/digital_output.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/pwm_common.h \
  ../../Inc/mc_tasks.h ../../Inc/parameters_conversion.h
@@ -172,6 +174,12 @@ Application/User/mc_tasks.o: \
 
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
+../../Inc/motorcontrol.h:
+
+../../Inc/mc_config.h:
+
+../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/pid_regulator.h:
+
 ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/mc_type.h:
 
 ../../Inc/mc_stm_types.h:
@@ -191,16 +199,6 @@ Application/User/mc_tasks.o: \
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h:
 
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_bus.h:
-
-../../Inc/mc_math.h:
-
-../../Inc/motorcontrol.h:
-
-../../Inc/mc_config.h:
-
-../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/pid_regulator.h:
-
-../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/mc_type.h:
 
 ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/revup_ctrl.h:
 
@@ -239,6 +237,8 @@ Application/User/mc_tasks.o: \
 ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/motor_power_measurement.h:
 
 ../../Inc/user_interface.h:
+
+../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/mc_type.h:
 
 ../../Inc/mc_interface.h:
 
@@ -325,6 +325,10 @@ Application/User/mc_tasks.o: \
 ../../Inc/drive_parameters.h:
 
 ../../Inc/mc_api.h:
+
+../../Inc/mc_math.h:
+
+../../Inc/motorcontrol.h:
 
 ../../Inc/mc_interface.h:
 

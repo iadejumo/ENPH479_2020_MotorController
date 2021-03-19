@@ -1,5 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (9-2020-q2-update)
 ################################################################################
 
 -include ../makefile.init
@@ -30,6 +31,12 @@ endif
 
 -include ../makefile.defs
 
+OPTIONAL_TOOL_DEPS := \
+$(wildcard ../makefile.defs) \
+$(wildcard ../makefile.init) \
+$(wildcard ../makefile.targets) \
+
+
 BUILD_ARTIFACT_NAME := solar_lv_motor
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX := 
@@ -56,22 +63,22 @@ all: main-build
 main-build: solar_lv_motor.elf secondary-outputs
 
 # Tool invocations
-solar_lv_motor.elf: $(OBJS) $(USER_OBJS) C:\Users\chuan\Documents\workspace\ENPH479_2020_MotorController\Firmware\solar_lv_motor\STM32CubeIDE\STM32F446RETX_FLASH.ld
-	arm-none-eabi-gcc -o "solar_lv_motor.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\chuan\Documents\workspace\ENPH479_2020_MotorController\Firmware\solar_lv_motor\STM32CubeIDE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="solar_lv_motor.map" -Wl,--gc-sections -static -L../../MCSDK_v5.4.5/MotorControl/lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+solar_lv_motor.elf: $(OBJS) $(USER_OBJS) C:\Users\Alex\Desktop\ENPH479\ Motor\ Controller\ENPH479_2020_MotorController\Firmware\solar_lv_motor\STM32CubeIDE\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "solar_lv_motor.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Alex\Desktop\ENPH479 Motor Controller\ENPH479_2020_MotorController\Firmware\solar_lv_motor\STM32CubeIDE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="solar_lv_motor.map" -Wl,--gc-sections -static -Wl,--start-group -l:libmc-gcc_M4_NoCCMRAM.lib -Wl,--end-group -L../../MCSDK_v5.4.5/MotorControl/lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-default.size.stdout: $(EXECUTABLES)
+default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-size  $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-solar_lv_motor.list: $(EXECUTABLES)
+solar_lv_motor.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "solar_lv_motor.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-solar_lv_motor.bin: $(EXECUTABLES)
+solar_lv_motor.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "solar_lv_motor.bin"
 	@echo 'Finished building: $@'
 	@echo ' '

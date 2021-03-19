@@ -1,5 +1,5 @@
 Application/User/regular_conversion_manager.o: \
- C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/Src/regular_conversion_manager.c \
+ C:/Users/Alex/Desktop/ENPH479\ Motor\ Controller/ENPH479_2020_MotorController/Firmware/solar_lv_motor/Src/regular_conversion_manager.c \
  ../../Inc/regular_conversion_manager.h ../../Inc/mc_stm_types.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_system.h \
  ../../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \

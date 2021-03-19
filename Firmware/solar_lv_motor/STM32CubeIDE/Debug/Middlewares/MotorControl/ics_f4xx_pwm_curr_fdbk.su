@@ -1,6 +1,6 @@
 ics_f4xx_pwm_curr_fdbk.c:202:13:ICS_GetPhaseCurrents	12	static
 ics_f4xx_pwm_curr_fdbk.c:261:13:ICS_HFCurrentsCalibration	8	static
-ics_f4xx_pwm_curr_fdbk.c:62:13:ICS_Init	4	static
+ics_f4xx_pwm_curr_fdbk.c:62:13:ICS_Init	0	static
 ics_f4xx_pwm_curr_fdbk.c:287:13:ICS_TurnOnLowSides	12	static
 ics_f4xx_pwm_curr_fdbk.c:317:13:ICS_SwitchOnPWM	16	static
 ics_f4xx_pwm_curr_fdbk.c:370:13:ICS_SwitchOffPWM	16	static

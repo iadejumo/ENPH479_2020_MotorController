@@ -5,13 +5,13 @@ stm32f4xx_hal_uart.c:467:19:HAL_LIN_Init	24	static
 stm32f4xx_hal_uart.c:548:19:HAL_MultiProcessor_Init	24	static
 stm32f4xx_hal_uart.c:684:13:HAL_UART_MspDeInit	0	static
 stm32f4xx_hal_uart.c:625:19:HAL_UART_DeInit	8	static
-stm32f4xx_hal_uart.c:1024:19:HAL_UART_Transmit	32	static
-stm32f4xx_hal_uart.c:1110:19:HAL_UART_Receive	32	static
+stm32f4xx_hal_uart.c:1024:19:HAL_UART_Transmit	24	static
+stm32f4xx_hal_uart.c:1110:19:HAL_UART_Receive	24	static
 stm32f4xx_hal_uart.c:1201:19:HAL_UART_Transmit_IT	8	static
 stm32f4xx_hal_uart.c:1246:19:HAL_UART_Receive_IT	8	static
-stm32f4xx_hal_uart.c:1297:19:HAL_UART_Transmit_DMA	16	static
-stm32f4xx_hal_uart.c:1365:19:HAL_UART_Receive_DMA	24	static
-stm32f4xx_hal_uart.c:1432:19:HAL_UART_DMAPause	4	static
+stm32f4xx_hal_uart.c:1297:19:HAL_UART_Transmit_DMA	24	static
+stm32f4xx_hal_uart.c:1365:19:HAL_UART_Receive_DMA	32	static
+stm32f4xx_hal_uart.c:1432:19:HAL_UART_DMAPause	0	static
 stm32f4xx_hal_uart.c:1469:19:HAL_UART_DMAResume	8	static
 stm32f4xx_hal_uart.c:1505:19:HAL_UART_DMAStop	8	static
 stm32f4xx_hal_uart.c:1557:19:HAL_UART_Abort	8	static
@@ -23,7 +23,7 @@ stm32f4xx_hal_uart.c:2180:13:HAL_UART_TxHalfCpltCallback	0	static
 stm32f4xx_hal_uart.c:2575:13:UART_DMATxHalfCplt	8	static
 stm32f4xx_hal_uart.c:2195:13:HAL_UART_RxCpltCallback	0	static
 stm32f4xx_hal_uart.c:2594:13:UART_DMAReceiveCplt	8	static
-stm32f4xx_hal_uart.c:2990:26:UART_Receive_IT.part.1	8	static
+stm32f4xx_hal_uart.c:2990:26:UART_Receive_IT.part.0	8	static
 stm32f4xx_hal_uart.c:2210:13:HAL_UART_RxHalfCpltCallback	0	static
 stm32f4xx_hal_uart.c:2628:13:UART_DMARxHalfCplt	8	static
 stm32f4xx_hal_uart.c:2225:13:HAL_UART_ErrorCallback	0	static

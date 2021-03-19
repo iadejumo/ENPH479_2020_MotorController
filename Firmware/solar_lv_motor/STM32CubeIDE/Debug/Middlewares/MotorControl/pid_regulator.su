@@ -19,5 +19,5 @@ pid_regulator.c:269:13:PID_SetKD	0	static
 pid_regulator.c:279:16:PID_GetKD	0	static
 pid_regulator.c:289:17:PID_GetKDDivisor	0	static
 pid_regulator.c:300:13:PID_SetKDDivisorPOW2	0	static
-pid_regulator.c:321:16:PI_Controller	16	static
+pid_regulator.c:321:16:PI_Controller	12	static
 pid_regulator.c:422:16:PID_Controller	16	static

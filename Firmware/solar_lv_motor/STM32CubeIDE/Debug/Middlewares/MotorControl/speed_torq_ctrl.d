@@ -1,5 +1,5 @@
 Middlewares/MotorControl/speed_torq_ctrl.o: \
- C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Src/speed_torq_ctrl.c \
+ C:/Users/Alex/Desktop/ENPH479\ Motor\ Controller/ENPH479_2020_MotorController/Firmware/solar_lv_motor/MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Src/speed_torq_ctrl.c \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/speed_torq_ctrl.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/mc_type.h \
  ../../Inc/mc_stm_types.h \

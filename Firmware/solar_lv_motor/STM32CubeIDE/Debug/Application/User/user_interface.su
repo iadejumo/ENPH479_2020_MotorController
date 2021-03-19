@@ -8,7 +8,7 @@ user_interface.c:1048:13:UI_ExecSpeedRamp	8	static
 user_interface.c:1065:13:UI_ExecTorqueRamp	8	static
 user_interface.c:1091:13:UI_GetRevupData	24	static
 user_interface.c:1122:13:UI_SetRevupData	24	static
-user_interface.c:1143:13:UI_SetCurrentReferences	8	static
+user_interface.c:1143:13:UI_SetCurrentReferences	16	static
 user_interface.c:1162:13:UI_GetMPInfo	0	static
 user_interface.c:1172:13:UI_DACInit	0	static
 user_interface.c:1185:6:UI_DACExec	0	static

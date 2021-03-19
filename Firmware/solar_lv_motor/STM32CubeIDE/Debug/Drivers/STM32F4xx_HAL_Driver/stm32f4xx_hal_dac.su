@@ -2,7 +2,7 @@ stm32f4xx_hal_dac.c:373:13:HAL_DAC_MspInit	0	static
 stm32f4xx_hal_dac.c:269:19:HAL_DAC_Init	8	static
 stm32f4xx_hal_dac.c:388:13:HAL_DAC_MspDeInit	0	static
 stm32f4xx_hal_dac.c:328:19:HAL_DAC_DeInit	8	static
-stm32f4xx_hal_dac.c:429:19:HAL_DAC_Start	8	static
+stm32f4xx_hal_dac.c:429:19:HAL_DAC_Start	4	static
 stm32f4xx_hal_dac.c:488:19:HAL_DAC_Stop	4	static
 stm32f4xx_hal_dac.c:520:19:HAL_DAC_Start_DMA	24	static
 stm32f4xx_hal_dac.c:639:19:HAL_DAC_Stop_DMA	8	static

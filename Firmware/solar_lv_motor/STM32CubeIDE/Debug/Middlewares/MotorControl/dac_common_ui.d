@@ -1,5 +1,5 @@
 Middlewares/MotorControl/dac_common_ui.o: \
- C:/Users/chuan/Documents/workspace/ENPH479_2020_MotorController/Firmware/solar_lv_motor/MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Src/dac_common_ui.c \
+ C:/Users/Alex/Desktop/ENPH479\ Motor\ Controller/ENPH479_2020_MotorController/Firmware/solar_lv_motor/MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Src/dac_common_ui.c \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/UILibrary/Inc/dac_common_ui.h \
  ../../Inc/user_interface.h \
  ../../MCSDK_v5.4.5/MotorControl/MCSDK/MCLib/Any/Inc/mc_type.h \

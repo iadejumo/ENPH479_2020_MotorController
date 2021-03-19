@@ -38,6 +38,7 @@
 "Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim.o"
 "Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim_ex.o"
 "Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_uart.o"
+"Drivers/STM32F4xx_HAL_Driver/stm32f4xx_ll_adc.o"
 "Middlewares/MotorControl/bus_voltage_sensor.o"
 "Middlewares/MotorControl/circle_limitation.o"
 "Middlewares/MotorControl/dac_common_ui.o"

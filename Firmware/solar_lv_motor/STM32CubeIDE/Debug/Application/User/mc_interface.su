@@ -1,7 +1,7 @@
 mc_interface.c:60:13:MCI_Init	4	static
-mc_interface.c:87:13:MCI_ExecSpeedRamp	0	static
-mc_interface.c:113:13:MCI_ExecTorqueRamp	8	static
-mc_interface.c:133:13:MCI_SetCurrentReferences	16	static
+mc_interface.c:87:13:MCI_ExecSpeedRamp	4	static
+mc_interface.c:113:13:MCI_ExecTorqueRamp	4	static
+mc_interface.c:133:13:MCI_SetCurrentReferences	8	static
 mc_interface.c:163:13:MCI_StartMotor	8	static
 mc_interface.c:190:13:MCI_StopMotor	0	static
 mc_interface.c:204:13:MCI_FaultAcknowledged	0	static

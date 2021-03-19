@@ -6,7 +6,7 @@ speed_torq_ctrl.c:109:16:STC_GetMecSpeedRefUnit	0	static
 speed_torq_ctrl.c:124:16:STC_GetTorqueRef	0	static
 speed_torq_ctrl.c:146:13:STC_SetControlMode	0	static
 speed_torq_ctrl.c:158:23:STC_GetControlMode	0	static
-speed_torq_ctrl.c:188:13:STC_ExecRamp	16	static
+speed_torq_ctrl.c:188:13:STC_ExecRamp	24	static
 speed_torq_ctrl.c:282:13:STC_StopRamp	0	static
 speed_torq_ctrl.c:301:16:STC_CalcTorqueReference	16	static
 speed_torq_ctrl.c:368:16:STC_GetMecSpeedRefUnitDefault	0	static
