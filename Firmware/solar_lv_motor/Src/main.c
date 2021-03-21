@@ -84,39 +84,39 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 //  raw 12-bit ADC reading
-	uint16_t potentiometer_value;
-
-	uint16_t therm_value; //bits
-	uint16_t therm_voltage; //[mV]
-	uint16_t therm_resistance; //[ohms]
-	uint16_t therm_temp; //[C]
-
-	uint16_t user_speed;
-	uint16_t mcwb_speed;
-
-	uint16_t convFlag;
+//	uint16_t potentiometer_value;
+//
+//	uint16_t therm_value; //bits
+//	uint16_t therm_voltage; //[mV]
+//	uint16_t therm_resistance; //[ohms]
+//	uint16_t therm_temp; //[C]
+//
+//	uint16_t user_speed;
+//	uint16_t mcwb_speed;
+//
+//	uint16_t convFlag;
 
 //	serial debug msg
-	char msg_debug[10];
-	RegConv_t PotentiometerConv;
-	RegConv_t ThermistorConv;
-	uint8_t PotentiometerHandle;
-	uint8_t ThermistorHandle;
-
-	PotentiometerConv.regADC = ADC1 ; /* to be modify to match your ADC */
-	PotentiometerConv.channel = ADC_CHANNEL_8;/* to be modify to match your ADC channel */
-	PotentiometerConv.samplingTime = ADC_SAMPLETIME_3CYCLES; /* to be modify to match your sampling time */
-	PotentiometerHandle = RCM_RegisterRegConv (&PotentiometerConv);
-
-	ThermistorConv.regADC = ADC1;
-	ThermistorConv.channel = ADC_CHANNEL_12;
-	ThermistorConv.samplingTime = ADC_SAMPLETIME_3CYCLES;
-	ThermistorHandle = RCM_RegisterRegConv (&ThermistorConv);
-
-	qd_t currRef;
-	currRef.q = 0;
-	currRef.d = 0;
-	convFlag = 4;
+//	char msg_debug[10];
+//	RegConv_t PotentiometerConv;
+//	RegConv_t ThermistorConv;
+//	uint8_t PotentiometerHandle;
+//	uint8_t ThermistorHandle;
+//
+//	PotentiometerConv.regADC = ADC1 ; /* to be modify to match your ADC */
+//	PotentiometerConv.channel = ADC_CHANNEL_8;/* to be modify to match your ADC channel */
+//	PotentiometerConv.samplingTime = ADC_SAMPLETIME_3CYCLES; /* to be modify to match your sampling time */
+//	PotentiometerHandle = RCM_RegisterRegConv (&PotentiometerConv);
+//
+//	ThermistorConv.regADC = ADC1;
+//	ThermistorConv.channel = ADC_CHANNEL_12;
+//	ThermistorConv.samplingTime = ADC_SAMPLETIME_3CYCLES;
+//	ThermistorHandle = RCM_RegisterRegConv (&ThermistorConv);
+//
+//	qd_t currRef;
+//	currRef.q = 0;
+//	currRef.d = 0;
+//	convFlag = 4;
 
   /* USER CODE END 1 */
 
@@ -151,8 +151,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   //sprintf(msg_debug, "%hu\r\n", "ADC Started\n");
-  MC_ProgramSpeedRampMotor1(500/6.0, 1500);
-  MC_StartMotor1();
+//  MC_ProgramSpeedRampMotor1(500/6.0, 1500);
+//  MC_StartMotor1();
 
   /* USER CODE END 2 */
 
@@ -171,81 +171,81 @@ int main(void)
 	  // 2: pot conversion read
 	  // 3: therm conversion scheduled
 	  // 4: therm conversion read
-	  if (RCM_GetUserConvState() == RCM_USERCONV_IDLE && convFlag == 4)
-	      {
-		  /* if Idle, then program a new conversion request */
-	       RCM_RequestUserConv(PotentiometerHandle);
-	       convFlag = 1;
-	      }
-
-	      else if (RCM_GetUserConvState() == RCM_USERCONV_EOC && convFlag == 1)
-	      {
-	       /* if Done, then read the captured value */
-	       potentiometer_value = RCM_GetUserConv();
-	       user_speed = potentiometer_value * 4000.0 / 65520.0;
-	       mcwb_speed = user_speed/6.0;
-
-	       //MC_ProgramSpeedRampMotor1(mcwb_speed, 1500);
-	       currRef.q = user_speed;
-	       MC_SetCurrentReferenceMotor1(currRef);
-	       HAL_Delay(1000);
-
-	       convFlag = 2;
-
-	       //if(user_speed < 100){
-	    	   //MC_StopMotor1();
-	       //}
-
-	       // TODO: Refactor to using ramp state check
-	       // TODO: configure blue button for start stop (change direction)
-
-	       //sprintf(msg_debug, "%hu\r\n", user_speed);
-	       //HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
-
-	       sprintf(msg_debug, "Iq Ref: %hu\r\n", MC_GetIqdrefMotor1().q);
-	       HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
-
-//	       sprintf(msg_debug, "Real Iq: %hu\r\n", MC_GetIqdMotor1().q);
+//	  if (RCM_GetUserConvState() == RCM_USERCONV_IDLE && convFlag == 4)
+//	      {
+//		  /* if Idle, then program a new conversion request */
+//	       RCM_RequestUserConv(PotentiometerHandle);
+//	       convFlag = 1;
+//	      }
+//
+//	      else if (RCM_GetUserConvState() == RCM_USERCONV_EOC && convFlag == 1)
+//	      {
+//	       /* if Done, then read the captured value */
+//	       potentiometer_value = RCM_GetUserConv();
+//	       user_speed = potentiometer_value * 4000.0 / 65520.0;
+//	       mcwb_speed = user_speed/6.0;
+//
+//	       //MC_ProgramSpeedRampMotor1(mcwb_speed, 1500);
+//	       currRef.q = user_speed;
+//	       MC_SetCurrentReferenceMotor1(currRef);
+//	       HAL_Delay(1000);
+//
+//	       convFlag = 2;
+//
+//	       //if(user_speed < 100){
+//	    	   //MC_StopMotor1();
+//	       //}
+//
+//	       // TODO: Refactor to using ramp state check
+//	       // TODO: configure blue button for start stop (change direction)
+//
+//	       //sprintf(msg_debug, "%hu\r\n", user_speed);
+//	       //HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
+//
+//	       sprintf(msg_debug, "Iq Ref: %hu\r\n", MC_GetIqdrefMotor1().q);
 //	       HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
 //
-//	       sprintf(msg_debug, "Measured speed: %hu\r\n", MC_GetMecSpeedAverageMotor1());
-//	       HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
+////	       sprintf(msg_debug, "Real Iq: %hu\r\n", MC_GetIqdMotor1().q);
+////	       HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
+////
+////	       sprintf(msg_debug, "Measured speed: %hu\r\n", MC_GetMecSpeedAverageMotor1());
+////	       HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
+////
+////	       sprintf(msg_debug, "Te Ref: %hu\r\n", MC_GetTerefMotor1());
+////	       HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
+//	      }
 //
-//	       sprintf(msg_debug, "Te Ref: %hu\r\n", MC_GetTerefMotor1());
-//	       HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
-	      }
-
-	  if (RCM_GetUserConvState() == RCM_USERCONV_IDLE && convFlag == 2)
-	  	      {
-	  		  /* if Idle, then program a new conversion request */
-	  	       RCM_RequestUserConv(ThermistorHandle );
-	  	       convFlag = 3;
-	  	      }
-
-	  	      else if (RCM_GetUserConvState() == RCM_USERCONV_EOC && convFlag == 3)
-	  	      {
-	  	       /* if Done, then read the captured value */
-	  	       therm_value = RCM_GetUserConv();
-	  	       therm_value = therm_value / 16.0; // Convert left-aligned to right-aligned (0-4096)
-	  	       therm_voltage = therm_value * 3300.0 / 4096.0; //Convert to mV (to avoid decimal places)
-	  	       therm_resistance = 3300.0 * 3300 / therm_voltage;
-	  	       therm_resistance = therm_resistance - 3300;
-	  	       therm_temp = 1000.0*(log(therm_resistance / 10000.0) + (3435.0/298.0));
-	  	       therm_temp = 1000.0 * 3435.0 / therm_temp;
-	  	       therm_temp = therm_temp - 273.0;
-	  	       convFlag = 4;
-
-	  	       //MC_ProgramSpeedRampMotor1(mcwb_speed, 1500);
-//	  	       currRef.q = user_speed;
-//	  	       MC_SetCurrentReferenceMotor1(currRef);
-//	  	       HAL_Delay(1000);
-
-	  	       sprintf(msg_debug, "Thermistor resistance: %hu\r\n", therm_resistance);
-	  	       HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
-
-	  	     sprintf(msg_debug, "Temperature: %hu\r\n", therm_temp);
-	  	     HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
-	  	      }
+//	  if (RCM_GetUserConvState() == RCM_USERCONV_IDLE && convFlag == 2)
+//	  	      {
+//	  		  /* if Idle, then program a new conversion request */
+//	  	       RCM_RequestUserConv(ThermistorHandle );
+//	  	       convFlag = 3;
+//	  	      }
+//
+//	  	      else if (RCM_GetUserConvState() == RCM_USERCONV_EOC && convFlag == 3)
+//	  	      {
+//	  	       /* if Done, then read the captured value */
+//	  	       therm_value = RCM_GetUserConv();
+//	  	       therm_value = therm_value / 16.0; // Convert left-aligned to right-aligned (0-4096)
+//	  	       therm_voltage = therm_value * 3300.0 / 4096.0; //Convert to mV (to avoid decimal places)
+//	  	       therm_resistance = 3300.0 * 3300 / therm_voltage;
+//	  	       therm_resistance = therm_resistance - 3300;
+//	  	       therm_temp = 1000.0*(log(therm_resistance / 10000.0) + (3435.0/298.0));
+//	  	       therm_temp = 1000.0 * 3435.0 / therm_temp;
+//	  	       therm_temp = therm_temp - 273.0;
+//	  	       convFlag = 4;
+//
+//	  	       //MC_ProgramSpeedRampMotor1(mcwb_speed, 1500);
+////	  	       currRef.q = user_speed;
+////	  	       MC_SetCurrentReferenceMotor1(currRef);
+////	  	       HAL_Delay(1000);
+//
+//	  	       sprintf(msg_debug, "Thermistor resistance: %hu\r\n", therm_resistance);
+//	  	       HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
+//
+//	  	     sprintf(msg_debug, "Temperature: %hu\r\n", therm_temp);
+//	  	     HAL_UART_Transmit(&huart2, (uint8_t*)msg_debug, strlen(msg_debug), HAL_MAX_DELAY);
+//	  	      }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -617,7 +617,7 @@ static void MX_TIM2_Init(void)
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = 0;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = M1_HALL_TIM_PERIOD;
+  //htim2.Init.Period = M1_HALL_TIM_PERIOD;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -631,7 +631,7 @@ static void MX_TIM2_Init(void)
   }
   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
-  sConfig.IC1Filter = M1_HALL_IC_FILTER;
+ // sConfig.IC1Filter = M1_HALL_IC_FILTER;
   sConfig.Commutation_Delay = 0;
   if (HAL_TIMEx_HallSensor_Init(&htim2, &sConfig) != HAL_OK)
   {
@@ -692,8 +692,8 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOH_CLK_ENABLE();
-  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
 }
